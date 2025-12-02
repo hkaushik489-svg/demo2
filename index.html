@@ -1,343 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Buyu Beans</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Buyu Beans</title>
 
-    <!-- Embedded CSS -->
-    <style>
-        body { 
-            font-family: 'Open Sans', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background: linear-gradient(135deg, #F5F5DC 0%, #9ACD32 100%); 
-            color: #333; 
-            line-height: 1.6; 
-        }
+  <style>
+    body { 
+      font-family: 'Open Sans', sans-serif; 
+      margin: 0; padding: 0; 
+      background: linear-gradient(135deg, #F5F5DC 0%, #9ACD32 100%); 
+      color: #333; line-height: 1.6; 
+    }
+    header { 
+      background: #556B2F; color: #F5F5DC; 
+      padding: 2rem 1rem; text-align: center; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative; 
+    }
+    header h1 { margin:0; font-size:2.5rem; font-weight:700; }
+    .logo { position: absolute; top: 20px; right: 20px; }
+    .logo img { height:80px; width:auto; object-fit: contain; }
+    nav { margin-top:1rem; display:flex; justify-content:center; flex-wrap: wrap; }
+    nav a { color:#F5F5DC; margin:0 1rem; text-decoration:none; font-weight:600; padding:0.5rem 1rem; border-radius:20px; transition: background 0.3s, color 0.3s; }
+    nav a:hover { background:#000; color:#FFF; }
+    .hero {
+      background-image: url('assets/images/WhatsApp Image 2025-12-02 at 5.41.43 PM.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 2s ease-in;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(85, 107, 47, 0.4);
+    }
+    .hero > div {
+      position: relative; z-index: 1; max-width: 600px;
+    }
+    .hero h1 {
+      font-size: 3.5rem; margin: 0; font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size: 1.3rem; margin: 1rem 0; font-weight: 300;
+    }
+    .hero .cta {
+      display: inline-block; margin-top:1rem;
+      padding: 1rem 2rem; background: #9ACD32; color: #556B2F;
+      text-decoration: none; border-radius: 25px; font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .hero .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    section {
+      padding: 4rem 2rem; max-width: 1200px;
+      margin: 0 auto 2rem auto; background: #FFF;
+      border-radius: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      border-left: 5px solid #6B8E23;
+    }
+    .menu-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 2rem;
+    }
+    .menu-item {
+      background: #F5F5DC; border-radius: 15px;
+      padding: 1.5rem; text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid #9ACD32;
+    }
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .menu-item img {
+      width:100%; height:200px; object-fit: cover;
+      border-radius: 10px; margin-bottom:1rem;
+    }
+    .gallery-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 1rem;
+    }
+    .gallery-section img {
+      width:100%; height:200px; object-fit:cover;
+      border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery-section img:hover {
+      transform: scale(1.05);
+    }
+    .testimonials {
+      background: #F5F5DC; padding:2rem; border-radius:15px;
+    }
+    .testimonial {
+      margin-bottom:1.5rem; font-style: italic; color:#333;
+      padding:1rem; background:#FFF; border-radius:10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    footer {
+      background:#556B2F; color:#F5F5DC; text-align:center;
+      padding:2rem; box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+    }
+    .social-links a {
+      color: #9ACD32; margin: 0 1rem; font-size:1.8rem;
+      text-decoration: none; transition: color 0.3s, transform 0.3s;
+    }
+    .social-links a:hover {
+      color: #F5F5DC; transform: scale(1.1);
+    }
 
-        header { 
-            background: #556B2F; 
-            color: #F5F5DC; 
-            padding: 2rem 1rem; 
-            text-align: center; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        header h1 { 
-            margin: 0; 
-            font-size: 2.5rem; 
-            font-weight: 700; 
-        }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .menu-section { grid-template-columns: 1fr; }
+    }
+  </style>
 
-        /* Logo Top Right */
-        .logo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        .logo img {
-            height: 80px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        nav { 
-            margin-top: 1rem; 
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap; 
-        }
-
-        nav a { 
-            color: #F5F5DC; 
-            margin: 0 1rem; 
-            text-decoration: none; 
-            font-weight: 600; 
-            padding: 0.5rem 1rem; 
-            border-radius: 20px; 
-            transition: background 0.3s, color 0.3s; 
-        }
-
-        nav a:hover { 
-            background: #000000; 
-            color: #FFF; 
-        }
-
-        .hero { 
-            background-image: url('https://example.com/cafe-exterior.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            height: 70vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #FFF; 
-            text-align: center; 
-            position: relative; 
-            animation: fadeIn 2s ease-in; 
-        }
-
-        .hero::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; right: 0; bottom: 0; 
-            background: rgba(85, 107, 47, 0.4); 
-        }
-
-        .hero > div { 
-            position: relative; 
-            z-index: 1; 
-            max-width: 600px; 
-        }
-
-        .hero h1 { 
-            font-size: 3.5rem; 
-            margin: 0; 
-            font-weight: 700; 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
-        }
-
-        .hero p { 
-            font-size: 1.3rem; 
-            margin: 1rem 0; 
-            font-weight: 300; 
-        }
-
-        .hero .cta { 
-            display: inline-block; 
-            margin-top: 1rem; 
-            padding: 1rem 2rem; 
-            background: #9ACD32; 
-            color: #556B2F; 
-            text-decoration: none; 
-            border-radius: 25px; 
-            font-weight: 600; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
-            transition: transform 0.3s, box-shadow 0.3s; 
-        }
-
-        .hero .cta:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3); 
-        }
-
-        section { 
-            padding: 4rem 2rem; 
-            max-width: 1200px; 
-            margin: 0 auto 2rem auto; 
-            background: #FFF; 
-            border-radius: 20px; 
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1); 
-            border-left: 5px solid #6B8E23; 
-        }
-
-        .about h2, .menu-section h2, .gallery-section h2, .testimonials h2, .contact h2 { 
-            color: #556B2F; 
-            font-weight: 700; 
-            margin-bottom: 1rem; 
-            text-align: center; 
-        }
-
-        /* FIXED: renamed from .menu to .menu-section */
-        .menu-section { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2rem; 
-        }
-
-        .menu-item { 
-            background: #F5F5DC; 
-            border-radius: 15px; 
-            padding: 1.5rem; 
-            text-align: center; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-            transition: transform 0.3s, box-shadow 0.3s; 
-            border-top: 4px solid #9ACD32; 
-        }
-
-        .menu-item:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
-        }
-
-        .menu-item img { 
-            width: 100%; 
-            height: 200px; 
-            object-fit: cover; 
-            border-radius: 10px; 
-            margin-bottom: 1rem; 
-        }
-
-        .gallery-section { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 1rem; 
-        }
-
-        .gallery-section img { 
-            width: 100%; 
-            height: 200px; 
-            object-fit: cover; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-            transition: transform 0.3s; 
-        }
-
-        .gallery-section img:hover { 
-            transform: scale(1.05); 
-        }
-
-        .testimonials { 
-            background: #F5F5DC; 
-            padding: 2rem; 
-            border-radius: 15px; 
-        }
-
-        .testimonial { 
-            margin-bottom: 1.5rem; 
-            font-style: italic; 
-            color: #333; 
-            padding: 1rem; 
-            background: #FFF; 
-            border-radius: 10px; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
-        }
-
-        footer { 
-            background: #556B2F; 
-            color: #F5F5DC; 
-            text-align: center; 
-            padding: 2rem; 
-            box-shadow: 0 -4px 8px rgba(0,0,0,0.1); 
-        }
-
-        .social-links { 
-            margin-top: 1rem; 
-        }
-
-        .social-links a { 
-            color: #9ACD32; 
-            margin: 0 1rem; 
-            font-size: 1.8rem; 
-            text-decoration: none; 
-            transition: color 0.3s, transform 0.3s; 
-        }
-
-        .social-links a:hover { 
-            color: #F5F5DC; 
-            transform: scale(1.1); 
-        }
-
-        @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(20px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
-
-        @media (max-width: 768px) { 
-            .hero h1 { font-size: 2.5rem; } 
-            .menu-section { grid-template-columns: 1fr; } 
-        }
-    </style>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <header>
-        <h1><i class="fas"></i> The Buyu Beans</h1>
+  <header>
+    <h1>The Buyu Beans</h1>
+    <div class="logo">
+      <img src="assets/images/the buyu beans fnal logo black.png" alt="Logo">
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-        <!-- FIXED LOGO POSITION -->
-        <div class="logo">
-            <img src="https://example.com/logo.png" alt="Logo">
-        </div>
+  <div class="hero">
+    <div>
+      <h1>Welcome to The Buyu Beans</h1>
+      <p>Your cozy corner for coffee & good vibes ☕✨</p>
+      <a href="#menu" class="cta">See Our Menu</a>
+    </div>
+  </div>
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#menu">Menu</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#testimonials">Reviews</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Every café begins with a story. Ours started with a simple belief:
+      <br><br>
+      <i>“Everyone deserves a great cup of coffee — without making their wallet cry.”</i>
+      <br><br>
+      <b>THE BUYU BEANS</b> — where coffee, comfort, and good vibes live together.
+    </p>
+  </section>
 
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>
-            Every café begins with a story. Ours started with a simple belief:
-            <br>
-            <i>“Everyone deserves a great cup of coffee — without making their wallet cry.”</i>
-            <br>
-            Back in August 2024, a 23-year old coffee lover decided to create a place where people could slow down, breathe, and enjoy life’s small joys — a cozy corner filled with the aroma of freshly brewed coffee and warm conversations.
-            <br>
-            <b>THE BUYU BEANS</b> — where coffee, comfort, and good vibes live together. ☕✨
-        </p>
-    </section>
+  <section id="menu" class="menu-section">
+    <h2>Most Ordered, Most Loved</h2>
 
-    <section id="menu" class="menu-section">
-        <h2>Most Ordered, Most Loved</h2>
-        <div class="menu-item">
-            <img src="https://example.com/biscoff-mocha.jpg" alt="Biscoff Mocha">
-            <h3>Biscoff Mocha</h3>
-            <p>Rich biscoff-infused mocha</p>
-        </div>
-        <div class="menu-item">
-            <img src="https://example.com/iced-spanish-latte.jpg" alt="Iced Spanish Latte">
-            <h3>Iced Spanish Latte</h3>
-            <p>Cold Spanish-style latte</p>
-        </div>
-        <div class="menu-item">
-            <img src="https://example.com/kesar-pista-latte.jpg" alt="Kesar Pista Latte">
-            <h3>Kesar Pista Latte</h3>
-            <p>Saffron-pistachio infused latte</p>
-        </div>
-    </section>
+    <div class="menu-item">
+      <img src="assets/images/WhatsApp Image 2025-12-02 at 5.41.43 PM.jpeg" alt="Biscoff Mocha">
+      <h3>Biscoff Mocha</h3>
+      <p>Rich biscoff-infused mocha</p>
+    </div>
 
-    <section id="gallery" class="gallery-section">
-        <h2>Gallery</h2>
-        <img src="https://example.com/cafe-exterior.jpg" alt="Exterior">
-        <img src="https://example.com/cafe-menu.jpg" alt="Menu Board">
-        <img src="https://example.com/cafe-customers.jpg" alt="Customers">
-    </section>
+    <div class="menu-item">
+      <img src="assets/images/WhatsApp Image 2025-12-02 at 5.41.45 PM.jpeg" alt="Iced Spanish Latte">
+      <h3>Iced Spanish Latte</h3>
+      <p>Cold Spanish-style latte</p>
+    </div>
 
-    <section id="testimonials" class="testimonials">
-        <h2>What Our Esteemed Guests Say</h2>
-        <div class="testimonial">“Loved the vibe at The Buyu Beans! Cozy seating, great food, and super friendly staff. Easily my new favourite place to work and chill.” (from Google Reviews)</div>
-        <div class="testimonial">“Affordable, tasty, and consistent every single time. The coffee hits right, and the ambience is perfect for long conversations.” (from Google Reviews)</div>
-    </section>
+    <div class="menu-item">
+      <img src="assets/images/WhatsApp Image 2025-12-02 at 5.41.46 PM.jpeg" alt="Kesar Pista Latte">
+      <h3>Kesar Pista Latte</h3>
+      <p>Saffron-pistachio infused latte</p>
+    </div>
+  </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p><i class="fas fa-map-marker-alt"></i> Address: Tower 2, Shop No. 18, DLF Corporate Greens, Sector 74A, Gurugram, Haryana </p>
-        <p><i class="fas fa-clock"></i> Hours: Mon-Sat 9AM to 9PM</p>
-        <p><i class="fas fa-phone"></i> Phone: +91 8826852999</p>
-        <p><i class="fas fa-map-marker-alt"></i> Location: <a href="https://maps.app.goo.gl/x4n7NnrnscsvgESz6">Google Map Link</a></p>
-    </section>
+  <section id="gallery" class="gallery-section">
+    <h2>Gallery</h2>
+    <img src="assets/images/WhatsApp Image 2025-12-02 at 5.41.43 PM.jpeg" alt="Cafe Exterior">
+    <img src="assets/images/WhatsApp Image 2025-12-02 at 5.41.45 PM.jpeg" alt="Menu Board">
+    <img src="assets/images/WhatsApp Image 2025-12-02 at 5.41.46 PM.jpeg" alt="Customers">
+  </section>
 
-    <footer>
-        <p>&copy; 2024 The Buyu Beans. All rights reserved. <i class="fas fa-heart"></i></p>
-        <div class="social-links">
-            <a href="https://instagram.com/thebuyubeans" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/thebuyubeans" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://wa.me/+918826852999" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </footer>
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Esteemed Guests Say</h2>
+    <div class="testimonial">“Loved the vibe at The Buyu Beans! Cozy seating, great food, and super friendly staff.”</div>
+    <div class="testimonial">“Affordable, tasty, and consistent every single time. The coffee hits right, and the ambience is perfect for long conversations.”</div>
+  </section>
 
-    <!-- FIXED SCRIPT WITH SAFETY CHECK JAI BABA KI-->
-    <script>
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (!target) return;
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><i class="fas fa-map-marker-alt"></i> Tower 2, Shop No. 18, DLF Corporate Greens, Sector 74A, Gurugram, Haryana</p>
+    <p><i class="fas fa-clock"></i> Mon–Sat 9AM to 9PM</p>
+    <p><i class="fas fa-phone"></i> +91 8826852999</p>
+    <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/x4n7NnrnscsvgESz6">Google Map</a></p>
+  </section>
 
+  <footer>
+    <p>&copy; 2024 The Buyu Beans. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://instagram.com/thebuyubeans" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/thebuyubeans" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://wa.me/+918826852999" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></script>
+  <script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
-</html> 
+</html>
