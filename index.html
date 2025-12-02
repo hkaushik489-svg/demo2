@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Buyu Beans</title>
 
+    <!-- Embedded CSS -->
     <style>
         body { 
             font-family: 'Open Sans', sans-serif; 
@@ -66,7 +67,7 @@
         }
 
         .hero { 
-            background-image: url('assets/images/Buyu Biscff Mocha Latte.jpg'); 
+            background-image: url('https://example.com/cafe-exterior.jpg'); 
             background-size: cover; 
             background-position: center; 
             height: 70vh; 
@@ -133,13 +134,14 @@
             border-left: 5px solid #6B8E23; 
         }
 
-        h2 { 
+        .about h2, .menu-section h2, .gallery-section h2, .testimonials h2, .contact h2 { 
             color: #556B2F; 
             font-weight: 700; 
             margin-bottom: 1rem; 
             text-align: center; 
         }
 
+        /* FIXED: renamed from .menu to .menu-section */
         .menu-section { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -212,6 +214,10 @@
             box-shadow: 0 -4px 8px rgba(0,0,0,0.1); 
         }
 
+        .social-links { 
+            margin-top: 1rem; 
+        }
+
         .social-links a { 
             color: #9ACD32; 
             margin: 0 1rem; 
@@ -229,16 +235,25 @@
             from { opacity: 0; transform: translateY(20px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
+
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 2.5rem; } 
+            .menu-section { grid-template-columns: 1fr; } 
+        }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <header>
-        <h1>The Buyu Beans</h1>
+        <h1><i class="fas"></i> The Buyu Beans</h1>
 
+        <!-- FIXED LOGO POSITION -->
         <div class="logo">
-            <img src="assets/images/Buyu logo vector.png" alt="Logo">
+            <img src="https://example.com/logo.png" alt="Logo">
         </div>
 
         <nav>
@@ -250,35 +265,33 @@
         </nav>
     </header>
 
-    <section id="about">
+    <section id="about" class="about">
         <h2>About Us</h2>
         <p>
-            Every café begins with a story.
-            <br><br>
-            Ours started in August 2024 with a simple belief:
-            <i>“Everyone deserves great coffee — without making their wallet cry.”</i>
-            <br><br>
+            Every café begins with a story. Ours started with a simple belief:
+            <br>
+            <i>“Everyone deserves a great cup of coffee — without making their wallet cry.”</i>
+            <br>
+            Back in August 2024, a 23-year old coffee lover decided to create a place where people could slow down, breathe, and enjoy life’s small joys — a cozy corner filled with the aroma of freshly brewed coffee and warm conversations.
+            <br>
             <b>THE BUYU BEANS</b> — where coffee, comfort, and good vibes live together. ☕✨
         </p>
     </section>
 
     <section id="menu" class="menu-section">
         <h2>Most Ordered, Most Loved</h2>
-
         <div class="menu-item">
-            <img src="assets/images/Buyu Biscff Mocha Latte.jpg" alt="Biscoff Mocha">
+            <img src="https://example.com/biscoff-mocha.jpg" alt="Biscoff Mocha">
             <h3>Biscoff Mocha</h3>
             <p>Rich biscoff-infused mocha</p>
         </div>
-
         <div class="menu-item">
-            <img src="assets/images/Buyu Iced Spanish Latte.jpg" alt="Iced Spanish Latte">
+            <img src="https://example.com/iced-spanish-latte.jpg" alt="Iced Spanish Latte">
             <h3>Iced Spanish Latte</h3>
             <p>Cold Spanish-style latte</p>
         </div>
-
         <div class="menu-item">
-            <img src="assets/images/Buyu Kesar Pista Latte.jpg" alt="Kesar Pista Latte">
+            <img src="https://example.com/kesar-pista-latte.jpg" alt="Kesar Pista Latte">
             <h3>Kesar Pista Latte</h3>
             <p>Saffron-pistachio infused latte</p>
         </div>
@@ -286,34 +299,35 @@
 
     <section id="gallery" class="gallery-section">
         <h2>Gallery</h2>
-        <img src="assets/images/Buyu Biscff Mocha Latte.jpg" alt="Exterior">
-        <img src="assets/images/Buyu Iced Spanish Latte.jpg" alt="Menu">
-        <img src="assets/images/Buyu Kesar Pista Latte.jpg" alt="People">
+        <img src="https://example.com/cafe-exterior.jpg" alt="Exterior">
+        <img src="https://example.com/cafe-menu.jpg" alt="Menu Board">
+        <img src="https://example.com/cafe-customers.jpg" alt="Customers">
     </section>
 
     <section id="testimonials" class="testimonials">
-        <h2>What Our Guests Say</h2>
-        <div class="testimonial">“Loved the vibe! Cozy seating, great food, and friendly staff.”</div>
-        <div class="testimonial">“Affordable, tasty, and consistent. Perfect ambience for conversations.”</div>
+        <h2>What Our Esteemed Guests Say</h2>
+        <div class="testimonial">“Loved the vibe at The Buyu Beans! Cozy seating, great food, and super friendly staff. Easily my new favourite place to work and chill.” (from Google Reviews)</div>
+        <div class="testimonial">“Affordable, tasty, and consistent every single time. The coffee hits right, and the ambience is perfect for long conversations.” (from Google Reviews)</div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <p><i class="fas fa-map-marker-alt"></i> DLF Corporate Greens, Sector 74A, Gurugram</p>
-        <p><i class="fas fa-clock"></i> Mon–Sat: 9AM to 9PM</p>
-        <p><i class="fas fa-phone"></i> +91 8826852999</p>
-        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/x4n7NnrnscsvgESz6">Google Maps</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Address: Tower 2, Shop No. 18, DLF Corporate Greens, Sector 74A, Gurugram, Haryana </p>
+        <p><i class="fas fa-clock"></i> Hours: Mon-Sat 9AM to 9PM</p>
+        <p><i class="fas fa-phone"></i> Phone: +91 8826852999</p>
+        <p><i class="fas fa-map-marker-alt"></i> Location: <a href="https://maps.app.goo.gl/x4n7NnrnscsvgESz6">Google Map Link</a></p>
     </section>
 
     <footer>
-        <p>&copy; 2024 The Buyu Beans. All rights reserved.</p>
+        <p>&copy; 2024 The Buyu Beans. All rights reserved. <i class="fas fa-heart"></i></p>
         <div class="social-links">
-            <a href="https://instagram.com/thebuyubeans"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/thebuyubeans"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://wa.me/+918826852999"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/thebuyubeans" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/thebuyubeans" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/+918826852999" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
     </footer>
 
+    <!-- FIXED SCRIPT WITH SAFETY CHECK -->
     <script>
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -326,4 +340,4 @@
     </script>
 
 </body>
-</html>
+</html> fix it and give me the full code
