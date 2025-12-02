@@ -30,6 +30,7 @@
             font-weight: 700; 
         }
 
+        /* Logo Top Right */
         .logo {
             position: absolute;
             top: 20px;
@@ -41,10 +42,194 @@
             width: auto;
             object-fit: contain;
         }
-    </style>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+        nav { 
+            margin-top: 1rem; 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+
+        nav a { 
+            color: #F5F5DC; 
+            margin: 0 1rem; 
+            text-decoration: none; 
+            font-weight: 600; 
+            padding: 0.5rem 1rem; 
+            border-radius: 20px; 
+            transition: background 0.3s, color 0.3s; 
+        }
+
+        nav a:hover { 
+            background: #000000; 
+            color: #FFF; 
+        }
+
+        .hero { 
+            background-image: url('assets/images/Buyu Biscff Mocha Latte.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            height: 70vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #FFF; 
+            text-align: center; 
+            position: relative; 
+            animation: fadeIn 2s ease-in; 
+        }
+
+        .hero::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; right: 0; bottom: 0; 
+            background: rgba(85, 107, 47, 0.4); 
+        }
+
+        .hero > div { 
+            position: relative; 
+            z-index: 1; 
+            max-width: 600px; 
+        }
+
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin: 0; 
+            font-weight: 700; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+        }
+
+        .hero p { 
+            font-size: 1.3rem; 
+            margin: 1rem 0; 
+            font-weight: 300; 
+        }
+
+        .hero .cta { 
+            display: inline-block; 
+            margin-top: 1rem; 
+            padding: 1rem 2rem; 
+            background: #9ACD32; 
+            color: #556B2F; 
+            text-decoration: none; 
+            border-radius: 25px; 
+            font-weight: 600; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+            transition: transform 0.3s, box-shadow 0.3s; 
+        }
+
+        .hero .cta:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3); 
+        }
+
+        section { 
+            padding: 4rem 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto 2rem auto; 
+            background: #FFF; 
+            border-radius: 20px; 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1); 
+            border-left: 5px solid #6B8E23; 
+        }
+
+        h2 { 
+            color: #556B2F; 
+            font-weight: 700; 
+            margin-bottom: 1rem; 
+            text-align: center; 
+        }
+
+        .menu-section { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+        }
+
+        .menu-item { 
+            background: #F5F5DC; 
+            border-radius: 15px; 
+            padding: 1.5rem; 
+            text-align: center; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            border-top: 4px solid #9ACD32; 
+        }
+
+        .menu-item:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+        }
+
+        .menu-item img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            margin-bottom: 1rem; 
+        }
+
+        .gallery-section { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 1rem; 
+        }
+
+        .gallery-section img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            transition: transform 0.3s; 
+        }
+
+        .gallery-section img:hover { 
+            transform: scale(1.05); 
+        }
+
+        .testimonials { 
+            background: #F5F5DC; 
+            padding: 2rem; 
+            border-radius: 15px; 
+        }
+
+        .testimonial { 
+            margin-bottom: 1.5rem; 
+            font-style: italic; 
+            color: #333; 
+            padding: 1rem; 
+            background: #FFF; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+        }
+
+        footer { 
+            background: #556B2F; 
+            color: #F5F5DC; 
+            text-align: center; 
+            padding: 2rem; 
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.1); 
+        }
+
+        .social-links a { 
+            color: #9ACD32; 
+            margin: 0 1rem; 
+            font-size: 1.8rem; 
+            text-decoration: none; 
+            transition: color 0.3s, transform 0.3s; 
+        }
+
+        .social-links a:hover { 
+            color: #F5F5DC; 
+            transform: scale(1.1); 
+        }
+
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+    </style>
 </head>
 
 <body>
@@ -65,9 +250,16 @@
         </nav>
     </header>
 
-    <section id="about" class="about">
+    <section id="about">
         <h2>About Us</h2>
-        <p>Every café begins with a story...</p>
+        <p>
+            Every café begins with a story.
+            <br><br>
+            Ours started in August 2024 with a simple belief:
+            <i>“Everyone deserves great coffee — without making their wallet cry.”</i>
+            <br><br>
+            <b>THE BUYU BEANS</b> — where coffee, comfort, and good vibes live together. ☕✨
+        </p>
     </section>
 
     <section id="menu" class="menu-section">
@@ -94,27 +286,44 @@
 
     <section id="gallery" class="gallery-section">
         <h2>Gallery</h2>
-
-        <!-- If you upload these later, just keep the pattern the same -->
         <img src="assets/images/Buyu Biscff Mocha Latte.jpg" alt="Exterior">
-        <img src="assets/images/Buyu Iced Spanish Latte.jpg" alt="Menu Board">
-        <img src="assets/images/Buyu Kesar Pista Latte.jpg" alt="Customers">
+        <img src="assets/images/Buyu Iced Spanish Latte.jpg" alt="Menu">
+        <img src="assets/images/Buyu Kesar Pista Latte.jpg" alt="People">
     </section>
 
     <section id="testimonials" class="testimonials">
-        <h2>What Our Esteemed Guests Say</h2>
-        <div class="testimonial">“Loved the vibe...”</div>
-        <div class="testimonial">“Affordable, tasty...”</div>
+        <h2>What Our Guests Say</h2>
+        <div class="testimonial">“Loved the vibe! Cozy seating, great food, and friendly staff.”</div>
+        <div class="testimonial">“Affordable, tasty, and consistent. Perfect ambience for conversations.”</div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact">
         <h2>Contact Us</h2>
-        <p><i class="fas fa-map-marker-alt"></i> Address: DLF Corporate Greens...</p>
+        <p><i class="fas fa-map-marker-alt"></i> DLF Corporate Greens, Sector 74A, Gurugram</p>
+        <p><i class="fas fa-clock"></i> Mon–Sat: 9AM to 9PM</p>
+        <p><i class="fas fa-phone"></i> +91 8826852999</p>
+        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/x4n7NnrnscsvgESz6">Google Maps</a></p>
     </section>
 
     <footer>
         <p>&copy; 2024 The Buyu Beans. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://instagram.com/thebuyubeans"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/thebuyubeans"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/+918826852999"><i class="fab fa-whatsapp"></i></a>
+        </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (!target) return;
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 
 </body>
 </html>
